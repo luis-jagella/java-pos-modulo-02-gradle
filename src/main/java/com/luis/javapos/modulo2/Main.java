@@ -1,5 +1,7 @@
 package com.luis.javapos.modulo2;
 
+import com.google.gson.Gson;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -13,5 +15,9 @@ public class Main {
 
         Cardapio cardapio = new Cardapio(produtos);
 
+        Gson gson = new Gson();
+        String json = gson.toJson(produtos);
+
+        System.out.println(json);
     }
 }
