@@ -1,2 +1,6 @@
-# java-pos-modulo-02-gradle
-MODULE 02 - JAVA APPLIED ENGINEERING
+# Módulo 2 - Engenharia de Software com Java + IA
+## Gradle
+
+- Uso do Gradle Wrapper
+- Gerenciamento de dependências
+- Conversão de objetos para JSON com Gson
