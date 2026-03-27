@@ -35,7 +35,6 @@ public class CollectionsOverview {
         mapa.put("1", new Produto("Monster branco", 8, Categoria.BEBIDA));
 
         System.out.println("\nMAP:");
-        mapa.forEach(k, v) -> System.out.println(k + " -> " + v));
         mapa.forEach((k , v) -> System.out.println(k + " -> " + v));
     }
 }
