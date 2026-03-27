@@ -36,5 +36,13 @@ public class CollectionsOverview {
 
         System.out.println("\nMAP:");
         mapa.forEach((k , v) -> System.out.println(k + " -> " + v));
+
+        // ♦ LinkedList
+        List<String> fila =  new LinkedList<>();
+        fila.add("Pedido 01");
+        fila.add("Pedido 02");
+
+        System.out.println("\nLINKEDLIST:");
+        fila.forEach(System.out::println);
     }
 }
