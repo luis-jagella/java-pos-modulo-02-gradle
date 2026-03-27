@@ -5,10 +5,10 @@ public class Produto {
     private double preco;
     private Categoria categoria;    // TODO: Em desenvolvimento...
 
-    public Produto(String nome, Categoria categoria, double preco) {
+    public Produto(String nome, double preco, Categoria categoria) {
         this.nome = nome;
-        this.categoria = categoria;
         this.preco = preco;
+        this.categoria = categoria;
     }
 
     public String getNome() { return nome; }
