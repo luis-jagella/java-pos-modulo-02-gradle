@@ -1,9 +1,6 @@
 package com.luis.javapos.modulo2.collections.aula01_overview;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CollectionsOverview {
 
@@ -24,5 +21,13 @@ public class CollectionsOverview {
 
         System.out.println("\nSET:");
         nomes.forEach(System.out::println);
+
+        // ♦ TreeSet (Ordenado)
+        Set<String> ordenado = new TreeSet<>();
+        ordenado.add("Z");
+        ordenado.add("A");
+
+        System.out.println("\nTREESET: ");
+        ordenado.forEach(System.out::println);
     }
 }
