@@ -29,5 +29,13 @@ public class CollectionsOverview {
 
         System.out.println("\nTREESET: ");
         ordenado.forEach(System.out::println);
+
+        // ♦ Map (chave/valor)
+        Map<String, Produto> mapa = new HashMap<>();
+        mapa.put("1", new Produto("Monster branco", 8, Categoria.BEBIDA));
+
+        System.out.println("\nMAP:");
+        mapa.forEach(k, v) -> System.out.println(k + " -> " + v));
+        mapa.forEach((k , v) -> System.out.println(k + " -> " + v));
     }
 }
