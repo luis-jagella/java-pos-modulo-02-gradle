@@ -1,4 +1,4 @@
-package com.luis.javapos.modulo2.collections.aula02_cli;
+package com.luis.javapos.modulo2.collections.aula02_cli.model;
 
 public class Produto {
     private String nome;
