@@ -3,7 +3,7 @@ package com.luis.javapos.modulo2.collections.aula01_overview;
 public class Produto {
     private String nome;
     private double preco;
-    private Categoria categoria;    // TODO: Em desenvolvimento...
+    private Categoria categoria;
 
     public Produto(String nome, double preco, Categoria categoria) {
         this.nome = nome;
