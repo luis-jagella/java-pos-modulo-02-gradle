@@ -22,7 +22,7 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            //if (opcao == 1) { service.listarProdutos()) }
+            if (opcao == 1) { service.listarProdutos()) }
             if (opcao == 2) {
 
                 System.out.println("Qual o nome do produto?");
@@ -31,7 +31,7 @@ public class MenuCLI {
                 System.out.println("Qual o preço do produto?");
                 double precoProduto = scanner.nextDouble();
 
-                //service.adicionarProduto(nomeProduto , prprecoProdutoeco);
+                service.adicionarProduto(nomeProduto , precoProduto);
 
                 System.out.println("O produto" + nomeProduto + ", custando: " + precoProduto + "foi adicionado!");
             }
@@ -40,5 +40,4 @@ public class MenuCLI {
 
         }
     }
-
 }

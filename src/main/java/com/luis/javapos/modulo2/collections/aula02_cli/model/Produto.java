@@ -8,7 +8,6 @@ public class Produto {
     public Produto(String nome, double preco, Categoria categoria) {
         this.nome = nome;
         this.preco = preco;
-        this.categoria = categoria;
     }
 
     public String getNome() { return nome; }
