@@ -1,5 +1,6 @@
 package com.luis.javapos.modulo2.collections.aula02_cli;
 
+import com.luis.javapos.modulo2.collections.aula02_cli.model.Categoria;
 import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 
@@ -22,7 +23,16 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 1) { service.listarProdutos()) }
+            if (opcao == 1) {
+                for (Produto produto : service.obterProdutos()) {
+
+                    if (produto != null) {
+                        System.out.println(produto);
+                    } else {
+                        System.out.println("Nenhum Produto Cadastrado!");
+                    }
+                }
+            }
             if (opcao == 2) {
 
                 System.out.println("Qual o nome do produto?");
@@ -30,14 +40,23 @@ public class MenuCLI {
 
                 System.out.println("Qual o preço do produto?");
                 double precoProduto = scanner.nextDouble();
+                scanner.nextLine();
 
-                service.adicionarProduto(nomeProduto , precoProduto);
+                System.out.println("Qual a categoria do produto?");
+                String categoriaEntrada = scanner.nextLine();
+                String categoria = categoriaEntrada.toUpperCase();
+                Categoria categoria = scanner.nextLine();
 
-                System.out.println("O produto" + nomeProduto + ", custando: " + precoProduto + "foi adicionado!");
+                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
+
+                if (resultado) {
+                    System.out.println("O produto " + nomeProduto + " foi adicionado!");
+                } else {
+                    System.out.println("O produto " + nomeProduto + " não foi adicionado!");
+                }
             }
 
             if (opcao == 0) { return; }
-
         }
     }
 }
