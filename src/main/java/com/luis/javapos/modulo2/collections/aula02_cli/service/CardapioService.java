@@ -10,10 +10,16 @@ public class CardapioService {
 
     private List<Produto> produtos = new ArrayList<>();
 
-    public List<Produto> listarProdutos() { return produtos; }
+    public List<Produto> obterProdutos() { return produtos; }
 
-    public void adicionarProduto(String nomeProduto, double precoProduto, Categoria categoria) {
-        Produto produto = new Produto(nomeProduto, precoProduto, categoria);
-        produtos.add(produto);
+    public boolean adicionarProduto(String nomeProduto, double precoProduto, Categoria categoria) {
+
+        if (nomeProduto != null && precoProduto > 0 && categoria != null) {
+            Produto produto = new Produto(nomeProduto, precoProduto, categoria);
+            produtos.add(produto);
+        } else {
+            return false;
+        }
+        return true;
     }
 }
