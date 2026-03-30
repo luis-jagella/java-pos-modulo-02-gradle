@@ -27,7 +27,9 @@ public class MenuCLI {
                 for (Produto produto : service.obterProdutos()) {
 
                     if (produto != null) {
+                        System.out.println("--- CARDÁPIO ---");
                         System.out.println(produto);
+                        System.out.println("----------------");
                     } else {
                         System.out.println("Nenhum Produto Cadastrado!");
                     }
@@ -43,9 +45,8 @@ public class MenuCLI {
                 scanner.nextLine();
 
                 System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
-                // TODO: Ver sobre como manipular Enum nesses casos.
-                //String categoriaEntrada = scanner.nextLine();
-                //String   = categoriaEntrada.toUpperCase();
+                String strCategoria = scanner.nextLine();
+                String enumCategoria = strCategoria.toUpperCase();
                 //Categoria categoria = scanner.nextLine();
 
                 boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
