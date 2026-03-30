@@ -24,15 +24,19 @@ public class MenuCLI {
             scanner.nextLine();
 
             if (opcao == 1) {
-                for (Produto produto : service.obterProdutos()) {
 
-                    if (produto != null) {
-                        System.out.println("--- CARDÁPIO ---");
+                List<Produto> produtos = service.obterProdutos();
+
+                if (produtos.isEmpty()) {
+                    System.out.println("Nenhum Produto Cadastrado!");
+                } else {
+                    System.out.println("\n--- CARDÁPIO ---");
+
+                    for (Produto produto : produtos) {
                         System.out.println(produto);
-                        System.out.println("----------------");
-                    } else {
-                        System.out.println("Nenhum Produto Cadastrado!");
                     }
+
+                    System.out.println("---------------\n");
                 }
             }
             if (opcao == 2) {
@@ -46,10 +50,9 @@ public class MenuCLI {
 
                 System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
                 String strCategoria = scanner.nextLine();
-                String enumCategoria = strCategoria.toUpperCase();
+                Categoria categoria = Categoria.valueOf(strCategoria.toUpperCase());
 
-                // TODO: Manipular enum é muito mais trabalhoso, retirar enum na refatoração.
-                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, enumCategoria);
+                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
 
                 if (resultado) {
                     System.out.println("O produto " + nomeProduto + " foi adicionado!");
