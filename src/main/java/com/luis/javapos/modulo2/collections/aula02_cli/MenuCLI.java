@@ -42,10 +42,11 @@ public class MenuCLI {
                 double precoProduto = scanner.nextDouble();
                 scanner.nextLine();
 
-                System.out.println("Qual a categoria do produto?");
-                String categoriaEntrada = scanner.nextLine();
-                String categoria = categoriaEntrada.toUpperCase();
-                Categoria categoria = scanner.nextLine();
+                System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
+                // TODO: Ver sobre como manipular Enum nesses casos.
+                //String categoriaEntrada = scanner.nextLine();
+                //String   = categoriaEntrada.toUpperCase();
+                //Categoria categoria = scanner.nextLine();
 
                 boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
 
