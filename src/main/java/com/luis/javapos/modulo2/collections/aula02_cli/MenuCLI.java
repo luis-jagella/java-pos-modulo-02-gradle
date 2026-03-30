@@ -47,9 +47,9 @@ public class MenuCLI {
                 System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
                 String strCategoria = scanner.nextLine();
                 String enumCategoria = strCategoria.toUpperCase();
-                //Categoria categoria = scanner.nextLine();
 
-                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
+                // TODO: Manipular enum é muito mais trabalhoso, retirar enum na refatoração.
+                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, enumCategoria);
 
                 if (resultado) {
                     System.out.println("O produto " + nomeProduto + " foi adicionado!");
