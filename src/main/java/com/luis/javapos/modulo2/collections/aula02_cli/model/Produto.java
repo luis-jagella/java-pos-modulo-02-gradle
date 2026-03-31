@@ -21,10 +21,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" +
+        return "Produto: " +
                 "nome='" + nome + '\'' +
-                ", preco=" + preco +
-                ", categoria=" + categoria +
+                ", | Preço =" + preco +
+                ", | Categoria=" + categoria +
                 '}';
     }
 }
