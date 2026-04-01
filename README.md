@@ -131,4 +131,4 @@ Este projeto está sendo construído com foco em **aprendizado prático**, evolu
 
 ---
 
-Desenvolvido por **Luis Gabriel Pereira**
+Desenvolvido por **Luís Gabriel Pereira**
