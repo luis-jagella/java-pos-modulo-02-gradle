@@ -17,6 +17,9 @@ public class MenuCLI {
         while (true) {
             System.out.println("1 - Listar");
             System.out.println("2 - Adicionar");
+            System.out.println("3 - Buscar");
+            System.out.println("4 - Filtrar");
+            System.out.println("5 - Ordenar");
             System.out.println("0 - Sair");
 
             int opcao = scanner.nextInt();
@@ -58,6 +61,10 @@ public class MenuCLI {
                 } else {
                     System.out.println("O produto " + nomeProduto + " não foi adicionado!");
                 }
+            }
+
+            if (opcao == 3 || opcao ==4 || opcao == 5) {
+                System.out.println("Ainda em desenvolvimento!");
             }
 
             if (opcao == 0) { return; }
