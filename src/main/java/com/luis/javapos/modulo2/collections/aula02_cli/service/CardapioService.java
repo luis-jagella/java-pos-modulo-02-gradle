@@ -22,4 +22,16 @@ public class CardapioService {
         }
         return true;
     }
+
+    public void buscarPorNome() {
+        //TODO: in developing
+    }
+
+    public void filtrarPorCategoria() {
+        //TODO: in developing
+    }
+
+    public void ordenarPorPreco() {
+        //TODO: in developing
+    }
 }
