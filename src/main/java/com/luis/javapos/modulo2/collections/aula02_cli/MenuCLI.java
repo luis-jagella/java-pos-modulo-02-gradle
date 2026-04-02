@@ -4,7 +4,6 @@ import com.luis.javapos.modulo2.collections.aula02_cli.model.Categoria;
 import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
