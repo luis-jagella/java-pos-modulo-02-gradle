@@ -5,6 +5,7 @@ import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CardapioService {
 
@@ -23,8 +24,12 @@ public class CardapioService {
         return true;
     }
 
-    public void buscarPorNome() {
-        //TODO: in developing
+    public void buscarPorNome(String produtoBusca) {
+        List<Produto> filtrados = produtos.stream()
+                . filter(p -> p.getNome().equals(produtoBusca))
+                .toList();
+
+        System.out.println(filtrados);
     }
 
     public void filtrarPorCategoria() {
