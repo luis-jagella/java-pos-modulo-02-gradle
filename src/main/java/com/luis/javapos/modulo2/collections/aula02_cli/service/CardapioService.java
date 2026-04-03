@@ -24,33 +24,21 @@ public class CardapioService {
         return true;
     }
 
-    public void buscarPorNome(String produtoBusca) {
-        List<Produto> filtrados = produtos.stream()
-                . filter(p -> p.getNome().equals(produtoBusca))
+    public List<Produto> buscarPorNome(String produtoBusca) {
+        return produtos.stream()
+                .filter(p -> p.getNome().equalsIgnoreCase(produtoBusca))
                 .toList();
-
-        System.out.println(filtrados);
     }
 
     public List<Produto> filtrarPorCategoria(Categoria categoriaBusca) {
-        List<Produto> categoriaFiltrada = produtos.stream()
+        return produtos.stream()
                 . filter(p -> p.getCategoria() == categoriaBusca)
                 .toList();
-
-        if (categoriaFiltrada.isEmpty()) {
-            System.out.println("Nenhum Produto");
-        } else {
-            System.out.println("--- Produto em " + categoriaBusca + "---");
-            return categoriaFiltrada;
-        }
-        return categoriaFiltrada;
     }
 
     public List<Produto> ordenarPorPreco() {
-        List<Produto> ordenados = produtos.stream()
+        return produtos.stream()
                 .sorted(Comparator.comparing(Produto::getPreco))
                 .toList();
-
-        return ordenados;
     }
 }
