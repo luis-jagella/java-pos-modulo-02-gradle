@@ -4,6 +4,7 @@ import com.luis.javapos.modulo2.collections.aula02_cli.model.Categoria;
 import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,10 @@ public class CardapioService {
     }
 
     public void ordenarPorPreco() {
-        //TODO: in developing
+        List<Produto> ordenados = produtos.stream()
+                .sorted(Comparator.comparing(Produto::getPreco))
+                .toList();
+
+        ordenados.forEach(System.out::println);
     }
 }
