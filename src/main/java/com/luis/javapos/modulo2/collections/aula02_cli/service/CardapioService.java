@@ -32,7 +32,7 @@ public class CardapioService {
         System.out.println(filtrados);
     }
 
-    public void filtrarPorCategoria(Categoria categoriaBusca) {
+    public List<Produto> filtrarPorCategoria(Categoria categoriaBusca) {
         List<Produto> categoriaFiltrada = produtos.stream()
                 . filter(p -> p.getCategoria() == categoriaBusca)
                 .toList();
@@ -41,10 +41,9 @@ public class CardapioService {
             System.out.println("Nenhum Produto");
         } else {
             System.out.println("--- Produto em " + categoriaBusca + "---");
-            categoriaFiltrada.forEach(System.out::println);
+            return categoriaFiltrada;
         }
-
-        System.out.println(categoriaFiltrada);
+        return categoriaFiltrada;
     }
 
     public List<Produto> ordenarPorPreco() {
