@@ -32,8 +32,19 @@ public class CardapioService {
         System.out.println(filtrados);
     }
 
-    public void filtrarPorCategoria() {
-        //TODO: in developing
+    public void filtrarPorCategoria(Categoria categoriaBusca) {
+        List<Produto> categoriaFiltrada = produtos.stream()
+                . filter(p -> p.getCategoria() == categoriaBusca)
+                .toList();
+
+        if (categoriaFiltrada.isEmpty()) {
+            System.out.println("Nenhum Produto");
+        } else {
+            System.out.println("--- Produto em " + categoriaBusca + "---");
+            categoriaFiltrada.forEach(System.out::println);
+        }
+
+        System.out.println(categoriaFiltrada);
     }
 
     public void ordenarPorPreco() {
