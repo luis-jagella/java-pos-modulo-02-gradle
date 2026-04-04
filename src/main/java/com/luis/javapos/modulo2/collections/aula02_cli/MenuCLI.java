@@ -25,6 +25,8 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
+            if (opcao == 0) { return; }
+
             if (opcao == 1) {
 
                 List<Produto> produtos = service.obterProdutos();
@@ -63,11 +65,30 @@ public class MenuCLI {
                 }
             }
 
-            if (opcao == 3 || opcao ==4 || opcao == 5) {
-                System.out.println("Ainda em desenvolvimento!");
+            if (opcao == 3) {
+                System.out.println("Qual o nome do produto que deseja buscar?");
+                String produtoBusca = scanner.nextLine();
+
+                List<Produto> resultadoBusca = service.buscarPorNome(produtoBusca);
+
+                if (resultadoBusca.isEmpty()){
+                    System.out.println("Nenhum produto encontrado!");
+                } else {
+
+                    System.out.println("--- RESULTADO DA BUSCA ---");
+
+                    for
+
+                }
             }
 
-            if (opcao == 0) { return; }
+            if (opcao == 4) {
+
+            }
+
+            if (opcao == 5) {
+
+            }
         }
     }
 }
