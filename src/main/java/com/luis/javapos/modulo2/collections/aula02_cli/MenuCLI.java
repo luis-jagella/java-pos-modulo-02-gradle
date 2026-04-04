@@ -77,7 +77,9 @@ public class MenuCLI {
 
                     System.out.println("--- RESULTADO DA BUSCA ---");
 
-                    for
+                    for (Produto produto : resultadoBusca) {
+                        System.out.println(resultadoBusca);
+                    }
 
                 }
             }
