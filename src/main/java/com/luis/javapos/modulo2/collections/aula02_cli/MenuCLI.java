@@ -4,7 +4,6 @@ import com.luis.javapos.modulo2.collections.aula02_cli.model.Categoria;
 import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +16,6 @@ public class MenuCLI {
         if (lista.isEmpty()) {
             System.out.println("Nenhum produto encontrado!");
         } else {
-            System.out.println("\n--- " + titulo + "---");
 
             for (Produto produto : lista) {
                 System.out.println(produto);
@@ -43,12 +41,14 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 0) {
                 System.out.println("Encerrando o sistema..."); return; }
+            switch (opcao) {
 
-            if (opcao == 1) {
+                    List<Produto> produtos = service.obterProdutos();
+                    MenuCLI.imprimirLista(produtos, "CARDÁPIO");
 
-                List<Produto> produtos = service.obterProdutos();
+                case 2: {
+                    System.out.println("Qual o nome do produto?");
 
                 if (produtos.isEmpty()) {
                     System.out.println("Nenhum Produto Cadastrado!");
