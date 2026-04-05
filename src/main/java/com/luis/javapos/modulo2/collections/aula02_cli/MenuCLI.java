@@ -4,13 +4,28 @@ import com.luis.javapos.modulo2.collections.aula02_cli.model.Categoria;
 import com.luis.javapos.modulo2.collections.aula02_cli.model.Produto;
 import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
 
-// TODO: Melhoria de if opcao -> switch e em vez de repetir o if/else dentro das funções e criar um método para padronizar isso.
-// TODO: Colocar a categoria,produto e etc também na capa do "--- PRODUTOS DA CATEGORIA + categoria ---"
+// TODO: Melhoria de if opcao -> switch.
 
 public class MenuCLI {
+
+    public static void imprimirLista(List<Produto> lista, String titulo) {
+
+        if (lista.isEmpty()) {
+            System.out.println("Nenhum produto encontrado!");
+        } else {
+            System.out.println("\n--- " + titulo + "---");
+
+            for (Produto produto : lista) {
+                System.out.println(produto);
+            }
+
+            System.out.println("-------------------------\n");
+        }
+    }
 
     public static void run() {
 
@@ -47,6 +62,7 @@ public class MenuCLI {
                     System.out.println("---------------\n");
                 }
             }
+
             if (opcao == 2) {
 
                 System.out.println("Qual o nome do produto?");
@@ -75,18 +91,7 @@ public class MenuCLI {
 
                 List<Produto> resultado = service.buscarPorNome(produtoBusca);
 
-                if (resultado.isEmpty()){
-                    System.out.println("Nenhum produto encontrado!");
-                } else {
-
-                    System.out.println("--- RESULTADO DA BUSCA ---");
-
-                    for (Produto produto : resultado) {
-                        System.out.println(produto);
-                    }
-
-                    System.out.println("-------------------------");
-                }
+                MenuCLI.imprimirLista(resultado, "RESULTADO DA BUSCA");
             }
 
             if (opcao == 4) {
@@ -96,35 +101,13 @@ public class MenuCLI {
                 Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
                 List<Produto> resultado = service.filtrarPorCategoria(categoria);
 
-                if (resultado.isEmpty()){
-                    System.out.println("Nenhum produto encontrado!");
-                } else {
-
-                    System.out.println("--- PRODUTOS DA CATEGORIA ---");
-
-                    for (Produto produto : resultado) {
-                        System.out.println(produto);
-                    }
-
-                    System.out.println("-------------------------");
-                }
+                MenuCLI.imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
             }
 
             if (opcao == 5) {
                 List<Produto> listaOrdenada = service.ordenarPorPreco();
 
-                if (listaOrdenada.isEmpty()){
-                    System.out.println("Nenhum produto encontrado!");
-                } else {
-
-                    System.out.println("--- PRODUTOS ORDENADOS ---");
-
-                    for (Produto produto : listaOrdenada) {
-                        System.out.println(produto);
-                    }
-
-                    System.out.println("-------------------------");
-                }
+                MenuCLI.imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
             }
         }
     }
