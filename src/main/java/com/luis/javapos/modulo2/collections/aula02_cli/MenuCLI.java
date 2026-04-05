@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 // TODO: Melhoria de if opcao -> switch e em vez de repetir o if/else dentro das funções e criar um método para padronizar isso.
+// TODO: Colocar a categoria,produto e etc também na capa do "--- PRODUTOS DA CATEGORIA + categoria ---"
 
 public class MenuCLI {
 
