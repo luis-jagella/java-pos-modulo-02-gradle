@@ -1,38 +1,37 @@
 # Java CLI Cardápio System
 
-Projeto desenvolvido durante estudos de **Java (pós-graduação)** com foco em:
-
-* Manipulação de dados com **Collections**
-* Estruturação de código em camadas
-* Prática de **entrada/saída (CLI)**
-* Uso de **Enums**
-* Organização com **Gradle**
+Projeto desenvolvido durante estudos de **Java (pós-graduação)** com foco em construção de aplicações reais utilizando **Collections, Stream API e boas práticas de arquitetura**.
 
 ---
 
-## Objetivo:
+## Objetivo
 
-Construir um sistema de linha de comando (CLI) para gerenciamento de um cardápio, aplicando conceitos fundamentais de Java na prática.
+Construir um sistema de linha de comando (CLI) para gerenciamento de um cardápio, aplicando conceitos fundamentais de Java na prática e evoluindo progressivamente o código.
 
 ---
 
-## Conceitos aplicados:
+## Conceitos aplicados
 
 * `List` (ArrayList)
 * `Enum` (Categoria)
-* Separação de responsabilidades (CLI vs Service)
+* Separação de responsabilidades (**CLI vs Service**)
 * Validação de dados
-* Estrutura de projeto com Gradle
+* Estrutura de projeto com **Gradle**
 * Entrada de dados com `Scanner`
+* **Stream API**
+
+  * `filter`
+  * `sorted`
+  * `toList`
 
 ---
 
-## Estrutura do Projeto:
+## 📂 Estrutura do Projeto
 
 ```
 modulo2.collections.aula02_cli
 │
-├── MenuCLI.java         # Interface de interação com o usuário
+├── MenuCLI.java         # Interface de interação com o usuário (CLI)
 ├── Main.java            # Ponto de entrada da aplicação
 │
 ├── model
@@ -40,54 +39,65 @@ modulo2.collections.aula02_cli
 │   └── Categoria.java   # Enum de categorias
 │
 └── service
-    └── CardapioService.java  # Regras de negócio
+    └── CardapioService.java  # Regras de negócio e manipulação de dados
 ```
 
 ---
 
-## ⚙Funcionalidades implementadas:
+## Funcionalidades implementadas
 
-### * Listar produtos
+### Listar produtos
 
 * Exibe todos os produtos cadastrados
 * Trata cenário de lista vazia
 
-### * Adicionar produto
+---
+
+### ➕ Adicionar produto
 
 * Nome
 * Preço
 * Categoria (Enum)
-
-### * Validações básicas
-
-* Nome não pode ser vazio
-* Preço deve ser maior que 0
-* Categoria obrigatória
+* Validações básicas aplicadas
 
 ---
 
-## Exemplo de uso:
+### Buscar por nome
+
+* Busca produtos pelo nome
+* Comparação com `equalsIgnoreCase`
+* Retorna lista de resultados
+
+---
+
+### Filtrar por categoria
+
+* Filtra produtos por categoria (`Enum`)
+* Uso de `Stream API`
+
+---
+
+### Ordenar por preço
+
+* Ordena produtos por preço (crescente)
+* Uso de `Comparator` + `Stream API`
+
+---
+
+## Exemplo de uso
 
 ```
 1 - Listar
 2 - Adicionar
+3 - Buscar
+4 - Filtrar
+5 - Ordenar
 0 - Sair
-
-Qual o nome do produto?
-Leite
-
-Qual o preço do produto?
-1
-
-Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)
-BEBIDA
-
-O produto Leite foi adicionado!
 ```
 
 ---
 
-## ▶ Como executar
+## Como executar
 
 ### Pelo IntelliJ IDEA
 
@@ -100,35 +110,39 @@ O produto Leite foi adicionado!
 ./gradlew run
 ```
 
-> obs: Certifique-se de que o plugin `application` está configurado no `build.gradle`
+> ⚠️ Certifique-se de que o plugin `application` está configurado no `build.gradle`
 
 ---
 
-## Aprendizados importantes:
+## Aprendizados importantes
 
 * Diferença entre **lógica de negócio (Service)** e **interface (CLI)**
 * Problemas comuns com `Scanner` (`nextInt`, `nextLine`)
-* Importância de validação de dados
+* Importância da validação de dados
 * Uso correto de `Enum`
-* Organização de código para projetos reais
+* Introdução prática à **Stream API**
+* Separação de responsabilidades em projetos reais
+* Evitar efeitos colaterais (não alterar lista original em consultas)
 
 ---
 
-## Próximos passos (Aula 03)
+## 🚧 Próximos passos (Refatoração)
 
-O projeto será evoluído (sem recriar do zero) com:
+O projeto continuará evoluindo com melhorias estruturais:
 
-* Busca de produtos por nome
-* Filtro por categoria
-* Ordenação por preço
-* Introdução à Stream API
+* Remoção de código duplicado (métodos utilitários)
+* Uso de `switch` no menu
+* Tratamento de erros (`try/catch`)
+* Melhor organização e legibilidade do código
 
 ---
 
 ## Observação
 
-Este projeto está sendo construído com foco em **aprendizado prático**, evoluindo gradualmente a cada módulo.
+Este projeto está sendo desenvolvido com foco em **aprendizado progressivo**, simulando a evolução de um sistema real — começando simples e sendo refinado ao longo do tempo.
 
 ---
+
+## Dev
 
 Desenvolvido por **Luís Gabriel Pereira**
