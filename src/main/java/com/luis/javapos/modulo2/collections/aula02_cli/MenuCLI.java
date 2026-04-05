@@ -107,7 +107,20 @@ public class MenuCLI {
             }
 
             if (opcao == 5) {
+                List<Produto> listaOrdenada = service.ordenarPorPreco();
 
+                if (listaOrdenada.isEmpty()){
+                    System.out.println("Nenhum produto encontrado!");
+                } else {
+
+                    System.out.println("--- RESULTADO DA BUSCA ---");
+
+                    for (Produto produto : listaOrdenada) {
+                        System.out.println(listaOrdenada);
+                    }
+
+                    System.out.println("-------------------------");
+                }
             }
         }
     }
