@@ -7,6 +7,8 @@ import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 import java.util.List;
 import java.util.Scanner;
 
+// TODO: Melhoria de if opcao -> switch e em vez de repetir o if/else dentro das funções e criar um método para padronizar isso.
+
 public class MenuCLI {
 
     public static void run() {
@@ -25,7 +27,8 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 0) { return; }
+            if (opcao == 0) {
+                System.out.println("Encerrando o sistema..."); return; }
 
             if (opcao == 1) {
 
@@ -78,7 +81,7 @@ public class MenuCLI {
                     System.out.println("--- RESULTADO DA BUSCA ---");
 
                     for (Produto produto : resultado) {
-                        System.out.println(resultado);
+                        System.out.println(produto);
                     }
 
                     System.out.println("-------------------------");
@@ -96,10 +99,10 @@ public class MenuCLI {
                     System.out.println("Nenhum produto encontrado!");
                 } else {
 
-                    System.out.println("--- RESULTADO DA BUSCA ---");
+                    System.out.println("--- PRODUTOS DA CATEGORIA ---");
 
                     for (Produto produto : resultado) {
-                        System.out.println(resultado);
+                        System.out.println(produto);
                     }
 
                     System.out.println("-------------------------");
@@ -113,10 +116,10 @@ public class MenuCLI {
                     System.out.println("Nenhum produto encontrado!");
                 } else {
 
-                    System.out.println("--- RESULTADO DA BUSCA ---");
+                    System.out.println("--- PRODUTOS ORDENADOS ---");
 
                     for (Produto produto : listaOrdenada) {
-                        System.out.println(listaOrdenada);
+                        System.out.println(produto);
                     }
 
                     System.out.println("-------------------------");
