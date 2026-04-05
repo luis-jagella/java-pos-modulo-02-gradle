@@ -66,21 +66,22 @@ public class MenuCLI {
             }
 
             if (opcao == 3) {
-                System.out.println("Qual o nome do produto que deseja buscar?");
+                System.out.println("Qual produto deseja buscar?");
                 String produtoBusca = scanner.nextLine();
 
-                List<Produto> resultadoBusca = service.buscarPorNome(produtoBusca);
+                List<Produto> resultado = service.buscarPorNome(produtoBusca);
 
-                if (resultadoBusca.isEmpty()){
+                if (resultado.isEmpty()){
                     System.out.println("Nenhum produto encontrado!");
                 } else {
 
                     System.out.println("--- RESULTADO DA BUSCA ---");
 
-                    for (Produto produto : resultadoBusca) {
-                        System.out.println(resultadoBusca);
+                    for (Produto produto : resultado) {
+                        System.out.println(resultado);
                     }
 
+                    System.out.println("-------------------------");
                 }
             }
 
