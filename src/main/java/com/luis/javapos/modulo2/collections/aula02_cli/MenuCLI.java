@@ -86,7 +86,24 @@ public class MenuCLI {
             }
 
             if (opcao == 4) {
+                System.out.println("Qual categoria deseja buscar?");
+                String strCategoriaBusca = scanner.nextLine();
 
+                Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
+                List<Produto> resultado = service.filtrarPorCategoria(categoria);
+
+                if (resultado.isEmpty()){
+                    System.out.println("Nenhum produto encontrado!");
+                } else {
+
+                    System.out.println("--- RESULTADO DA BUSCA ---");
+
+                    for (Produto produto : resultado) {
+                        System.out.println(resultado);
+                    }
+
+                    System.out.println("-------------------------");
+                }
             }
 
             if (opcao == 5) {
