@@ -16,6 +16,7 @@ public class MenuCLI {
         if (lista.isEmpty()) {
             System.out.println("Nenhum produto encontrado!");
         } else {
+            System.out.println("\n--- " + titulo + " ---");
 
             for (Produto produto : lista) {
                 System.out.println(produto);
@@ -41,73 +42,67 @@ public class MenuCLI {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-                System.out.println("Encerrando o sistema..."); return; }
             switch (opcao) {
 
+                case 1: {
                     List<Produto> produtos = service.obterProdutos();
                     MenuCLI.imprimirLista(produtos, "CARDÁPIO");
+                    break; }
 
                 case 2: {
                     System.out.println("Qual o nome do produto?");
+                    String nomeProduto = scanner.nextLine();
 
-                if (produtos.isEmpty()) {
-                    System.out.println("Nenhum Produto Cadastrado!");
-                } else {
-                    System.out.println("\n--- CARDÁPIO ---");
+                    System.out.println("Qual o preço do produto?");
+                    double precoProduto = scanner.nextDouble();
+                    scanner.nextLine();
 
-                    for (Produto produto : produtos) {
-                        System.out.println(produto);
+                    System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
+                    String strCategoria = scanner.nextLine();
+                    Categoria categoria = Categoria.valueOf(strCategoria.toUpperCase());
+
+                    boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
+
+                    if (resultado) {
+                        System.out.println("O produto " + nomeProduto + " foi adicionado!");
+                    } else {
+                        System.out.println("O produto " + nomeProduto + " não foi adicionado!");
                     }
+                    break; }
 
-                    System.out.println("---------------\n");
+                case 3: {
+                    System.out.println("Qual produto deseja buscar?");
+                    String produtoBusca = scanner.nextLine();
+
+                    List<Produto> resultado = service.buscarPorNome(produtoBusca);
+
+                    MenuCLI.imprimirLista(resultado, "RESULTADO DA BUSCA");
+                    break; }
+
+                case 4: {
+                    System.out.println("Qual categoria deseja buscar?");
+                    String strCategoriaBusca = scanner.nextLine();
+
+                    Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
+                    List<Produto> resultado = service.filtrarPorCategoria(categoria);
+
+                    MenuCLI.imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
+                    break;
                 }
-            }
 
-            if (opcao == 2) {
+                case 5: {
+                    List<Produto> listaOrdenada = service.ordenarPorPreco();
 
-                System.out.println("Qual o nome do produto?");
-                String nomeProduto = scanner.nextLine();
-
-                System.out.println("Qual o preço do produto?");
-                double precoProduto = scanner.nextDouble();
-                scanner.nextLine();
-
-                System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
-                String strCategoria = scanner.nextLine();
-                Categoria categoria = Categoria.valueOf(strCategoria.toUpperCase());
-
-                boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
-
-                if (resultado) {
-                    System.out.println("O produto " + nomeProduto + " foi adicionado!");
-                } else {
-                    System.out.println("O produto " + nomeProduto + " não foi adicionado!");
+                    MenuCLI.imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
+                    break;
                 }
-            }
 
-            if (opcao == 3) {
-                System.out.println("Qual produto deseja buscar?");
-                String produtoBusca = scanner.nextLine();
+                case 0: {
+                    System.out.println("Encerrando o sistema...");
+                    return; }
 
-                List<Produto> resultado = service.buscarPorNome(produtoBusca);
-
-                MenuCLI.imprimirLista(resultado, "RESULTADO DA BUSCA");
-            }
-
-            if (opcao == 4) {
-                System.out.println("Qual categoria deseja buscar?");
-                String strCategoriaBusca = scanner.nextLine();
-
-                Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
-                List<Produto> resultado = service.filtrarPorCategoria(categoria);
-
-                MenuCLI.imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
-            }
-
-            if (opcao == 5) {
-                List<Produto> listaOrdenada = service.ordenarPorPreco();
-
-                MenuCLI.imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
+                default:
+                    System.out.println("Opção inválida!");
             }
         }
     }
