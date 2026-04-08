@@ -69,8 +69,7 @@ public class MenuCLI {
                     scanner.nextLine();
 
                     System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
-                    String strCategoria = scanner.nextLine();
-                    Categoria categoria = Categoria.valueOf(strCategoria.toUpperCase());
+                    Categoria categoria = lerCategoria(scanner);
 
                     boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
 
@@ -94,7 +93,7 @@ public class MenuCLI {
                     System.out.println("Qual categoria deseja buscar?");
                     String strCategoriaBusca = scanner.nextLine();
 
-                    Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
+                    Categoria categoria = lerCategoria(scanner);
                     List<Produto> resultado = service.filtrarPorCategoria(categoria);
 
                     imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
