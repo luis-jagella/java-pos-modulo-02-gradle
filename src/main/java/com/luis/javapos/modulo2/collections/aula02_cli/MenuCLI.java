@@ -39,80 +39,85 @@ public class MenuCLI {
 
     public static void run() {
 
-        Scanner scanner = new Scanner(System.in);
-        CardapioService service = new CardapioService();
+        try (Scanner scanner = new Scanner(System.in)) {
+            CardapioService service = new CardapioService();
 
-        while (true) {
-            System.out.println("1 - Listar");
-            System.out.println("2 - Adicionar");
-            System.out.println("3 - Buscar");
-            System.out.println("4 - Filtrar");
-            System.out.println("5 - Ordenar");
-            System.out.println("0 - Sair");
+            while (true) {
+                System.out.println("1 - Listar");
+                System.out.println("2 - Adicionar");
+                System.out.println("3 - Buscar");
+                System.out.println("4 - Filtrar");
+                System.out.println("5 - Ordenar");
+                System.out.println("0 - Sair");
 
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
+                int opcao = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (opcao) {
+                switch (opcao) {
 
-                case 1: {
-                    List<Produto> produtos = service.obterProdutos();
-                    imprimirLista(produtos, "CARDÁPIO");
-                    break; }
-
-                case 2: {
-                    System.out.println("Qual o nome do produto?");
-                    String nomeProduto = scanner.nextLine();
-
-                    System.out.println("Qual o preço do produto?");
-                    double precoProduto = scanner.nextDouble();
-                    scanner.nextLine();
-
-                    System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
-                    Categoria categoria = lerCategoria(scanner);
-
-                    boolean resultado = service.adicionarProduto(nomeProduto , precoProduto, categoria);
-
-                    if (resultado) {
-                        System.out.println("O produto " + nomeProduto + " foi adicionado!");
-                    } else {
-                        System.out.println("O produto " + nomeProduto + " não foi adicionado!");
+                    case 1: {
+                        List<Produto> produtos = service.obterProdutos();
+                        imprimirLista(produtos, "CARDÁPIO");
+                        break;
                     }
-                    break; }
 
-                case 3: {
-                    System.out.println("Qual produto deseja buscar?");
-                    String produtoBusca = scanner.nextLine();
+                    case 2: {
+                        System.out.println("Qual o nome do produto?");
+                        String nomeProduto = scanner.nextLine();
 
-                    List<Produto> resultado = service.buscarPorNome(produtoBusca);
+                        System.out.println("Qual o preço do produto?");
+                        double precoProduto = scanner.nextDouble();
+                        scanner.nextLine();
 
-                    imprimirLista(resultado, "RESULTADO DA BUSCA");
-                    break; }
+                        System.out.println("Qual a categoria do produto? (LANCHE, BEBIDA, SOBREMESA)");
+                        Categoria categoria = lerCategoria(scanner);
 
-                case 4: {
-                    System.out.println("Qual categoria deseja buscar?");
-                    String strCategoriaBusca = scanner.nextLine();
+                        boolean resultado = service.adicionarProduto(nomeProduto, precoProduto, categoria);
 
-                    Categoria categoria = lerCategoria(scanner);
-                    List<Produto> resultado = service.filtrarPorCategoria(categoria);
+                        if (resultado) {
+                            System.out.println("O produto " + nomeProduto + " foi adicionado!");
+                        } else {
+                            System.out.println("O produto " + nomeProduto + " não foi adicionado!");
+                        }
+                        break;
+                    }
 
-                    imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
-                    break;
+                    case 3: {
+                        System.out.println("Qual produto deseja buscar?");
+                        String produtoBusca = scanner.nextLine();
+
+                        List<Produto> resultado = service.buscarPorNome(produtoBusca);
+
+                        imprimirLista(resultado, "RESULTADO DA BUSCA");
+                        break;
+                    }
+
+                    case 4: {
+                        System.out.println("Qual categoria deseja buscar?");
+                        String strCategoriaBusca = scanner.nextLine();
+
+                        Categoria categoria = lerCategoria(scanner);
+                        List<Produto> resultado = service.filtrarPorCategoria(categoria);
+
+                        imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
+                        break;
+                    }
+
+                    case 5: {
+                        List<Produto> listaOrdenada = service.ordenarPorPreco();
+
+                        imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
+                        break;
+                    }
+
+                    case 0: {
+                        System.out.println("Encerrando o sistema...");
+                        return;
+                    }
+
+                    default:
+                        System.out.println("Opção inválida!");
                 }
-
-                case 5: {
-                    List<Produto> listaOrdenada = service.ordenarPorPreco();
-
-                    imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
-                    break;
-                }
-
-                case 0: {
-                    System.out.println("Encerrando o sistema...");
-                    return; }
-
-                default:
-                    System.out.println("Opção inválida!");
             }
         }
     }
