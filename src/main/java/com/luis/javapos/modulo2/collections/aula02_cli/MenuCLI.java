@@ -9,6 +9,19 @@ import java.util.Scanner;
 
 public class MenuCLI {
 
+    private static Categoria lerCategoria(Scanner scanner) {
+        while (true) {
+            try {
+                String input = scanner.nextLine().toUpperCase();
+                return Categoria.valueOf(input);
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Categoria inválida! Use: LANCHE, BEBIDA ou SOBREMESA, por favor!");
+            }
+
+        }
+    }
+
     public static void imprimirLista(List<Produto> lista, String titulo) {
 
         if (lista.isEmpty()) {
