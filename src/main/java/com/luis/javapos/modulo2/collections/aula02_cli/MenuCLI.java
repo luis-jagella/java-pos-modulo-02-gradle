@@ -7,20 +7,18 @@ import com.luis.javapos.modulo2.collections.aula02_cli.service.CardapioService;
 import java.util.List;
 import java.util.Scanner;
 
-// TODO: Melhoria de if opcao -> switch.
-
 public class MenuCLI {
 
     public static void imprimirLista(List<Produto> lista, String titulo) {
 
         if (lista.isEmpty()) {
+
             System.out.println("Nenhum produto encontrado!");
         } else {
+
             System.out.println("\n--- " + titulo + " ---");
 
-            for (Produto produto : lista) {
-                System.out.println(produto);
-            }
+            lista.forEach(System.out::println);
 
             System.out.println("-------------------------\n");
         }
@@ -46,7 +44,7 @@ public class MenuCLI {
 
                 case 1: {
                     List<Produto> produtos = service.obterProdutos();
-                    MenuCLI.imprimirLista(produtos, "CARDÁPIO");
+                    imprimirLista(produtos, "CARDÁPIO");
                     break; }
 
                 case 2: {
@@ -76,7 +74,7 @@ public class MenuCLI {
 
                     List<Produto> resultado = service.buscarPorNome(produtoBusca);
 
-                    MenuCLI.imprimirLista(resultado, "RESULTADO DA BUSCA");
+                    imprimirLista(resultado, "RESULTADO DA BUSCA");
                     break; }
 
                 case 4: {
@@ -86,14 +84,14 @@ public class MenuCLI {
                     Categoria categoria = Categoria.valueOf(strCategoriaBusca.toUpperCase());
                     List<Produto> resultado = service.filtrarPorCategoria(categoria);
 
-                    MenuCLI.imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
+                    imprimirLista(resultado, "PRODUTOS DA CATEGORIA");
                     break;
                 }
 
                 case 5: {
                     List<Produto> listaOrdenada = service.ordenarPorPreco();
 
-                    MenuCLI.imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
+                    imprimirLista(listaOrdenada, "PRODUTOS ORDENADOS");
                     break;
                 }
 
