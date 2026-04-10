@@ -7,6 +7,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+ //Esqueleto de implementação para teste de comunicação com tratamento de erro para a primeira aula de networking da pós.
 
 public class aula01_socket {
 
