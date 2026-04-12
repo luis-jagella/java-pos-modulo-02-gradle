@@ -11,7 +11,6 @@ import java.net.http.HttpResponse;
 
 public class aula01_socket {
 
-    /*
     public static void main(String[] args) {
         // 1. O CEP que vamos consultar
         String cep = "01001000";
@@ -49,5 +48,4 @@ public class aula01_socket {
             e.printStackTrace();
         }
     }
-     */
 }
