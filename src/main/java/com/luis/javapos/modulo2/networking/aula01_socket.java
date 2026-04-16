@@ -1,6 +1,7 @@
 package com.luis.javapos.modulo2.networking;
 
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -18,7 +19,9 @@ public class aula01_socket {
 
             conexao.setRequestMethod("GET");
 
-            BufferedReader leitor = new StringBuilder();
+            BufferedReader leitor = new BufferedReader(
+                    new InputStreamReader(conexao.getInputStream())
+            );
 
         } catch (Exception e) {
             //exception
