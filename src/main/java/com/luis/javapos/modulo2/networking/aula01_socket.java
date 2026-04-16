@@ -1,5 +1,9 @@
 package com.luis.javapos.modulo2.networking;
 
+import java.io.BufferedReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class aula01_socket {
 
     public static void main(String[] args) {
@@ -9,7 +13,12 @@ public class aula01_socket {
         String urlParaChamada = "https://viacep.com.br/ws/" + cep + "/json/";
 
         try {
-            //http
+            URL url = new URL(urlParaChamada);
+            HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+
+            conexao.setRequestMethod("GET");
+
+            BufferedReader leitor = new StringBuilder();
 
         } catch (Exception e) {
             //exception
