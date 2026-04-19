@@ -23,7 +23,7 @@ public class aula01_socket {
             );
 
         } catch (Exception e) {
-            //exception
+            e.printStackTrace();
         }
     }
 }
