@@ -22,6 +22,18 @@ public class aula01_socket {
                     new InputStreamReader(conexao.getInputStream())
             );
 
+            String linha;
+            StringBuilder resposta = new StringBuilder();
+
+            while ((linha = leitor.readLine()) != null) {
+                resposta.append(linha);
+            }
+
+            leitor.close();
+
+            System.out.println("Resposta da API:");
+            System.out.println(resposta.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
