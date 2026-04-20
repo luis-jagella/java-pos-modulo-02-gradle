@@ -4,35 +4,29 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class aula01_socket {
 
     public static void main(String[] args) {
 
         String cep = "01001000";
-        String urlParaChamada = "https://viacep.com.br/ws/" + cep + "/json/";
+        String url = "https://viacep.com.br/ws/" + cep + "/json/";
 
         try {
-            URL url = new URL(urlParaChamada);
-            HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+            HttpClient client = HttpClient.newHttpClient();
 
-            conexao.setRequestMethod("GET");
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .GET()
+                    .build();
 
-            BufferedReader leitor = new BufferedReader(
-                    new InputStreamReader(conexao.getInputStream())
-            );
+            HttpResponse<String> response =
+                    client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            String linha;
-            StringBuilder resposta = new StringBuilder();
-
-            while ((linha = leitor.readLine()) != null) {
-                resposta.append(linha);
-            }
-
-            leitor.close();
-
-            System.out.println("Resposta da API:");
-            System.out.println(resposta.toString());
+            System.out.println(response.body());
 
         } catch (Exception e) {
             e.printStackTrace();
