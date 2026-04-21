@@ -14,8 +14,8 @@ public class CollectionsOverview {
         lista.forEach(System.out::println);
 
         Set<String> nomes = new HashSet<>();
-        nomes.add("Pizza da italiana");
-        nomes.add("Pizza da italiana");
+        nomes.add("Pizza");
+        nomes.add("Pizza de calabresa");
 
         System.out.println("\nSET:");
         nomes.forEach(System.out::println);
