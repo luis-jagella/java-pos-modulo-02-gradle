@@ -7,6 +7,9 @@ public class CollectionsOverview {
     public static void run() {
 
         List<Produto> lista = new ArrayList<>();
+        lista.add(new Produto("X-tudo com ovo", 25, Categoria.LANCHE));
+        lista.add(new Produto("X-tudo com frango", 25, Categoria.LANCHE));
+        lista.add(new Produto("X-tudo com carne", 25, Categoria.LANCHE));
 
         System.out.println("LIST: ");
         lista.forEach(System.out::println);
