@@ -41,12 +41,12 @@ public class CollectionsOverview {
         System.out.println("\nMAP:");
         produtosPorId.forEach((k , v) -> System.out.println(k + " -> " + v));
 
-        List<String> fila =  new LinkedList<>();
-        fila.add("Pedido 01");
-        fila.add("Pedido 02");
-        fila.add("Pedido 02");
+        List<String> filaPedidos =  new LinkedList<>();
+        filaPedidos.add("Pedido 01");
+        filaPedidos.add("Pedido 02");
+        filaPedidos.add("Pedido 02");
 
         System.out.println("\nLINKEDLIST:");
-        fila.forEach(System.out::println);
+        filaPedidos.forEach(System.out::println);
     }
 }
