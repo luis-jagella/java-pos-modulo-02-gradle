@@ -1,15 +1,13 @@
 package com.luis.javapos.modulo2.collections.aula01_overview;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class CollectionsOverview {
+
+    private static <T> void imprimirColecao(String titulo, Collection<T> colecao) {
+        System.out.println("\n" + titulo);
+        colecao.forEach(System.out::println);
+    }
 
     public static void run() {
 
