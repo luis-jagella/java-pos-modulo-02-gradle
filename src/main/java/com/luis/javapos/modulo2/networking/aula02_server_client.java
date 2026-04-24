@@ -12,22 +12,25 @@ public class aula02_server_client {
             System.out.println("Servidor rodando na porta 8000...");
 
             while (true) {
-                Socket client = server.accept();
-                System.out.println("Cliente conectado!");
 
-                client.close();
+                Socket client = server.accept();
+                System.out.println("Cliente conectado: " + client.getInetAddress());
 
                 InputStream input = client.getInputStream();
 
                 byte[] buffer = new byte[1024];
                 int bytesLidos = input.read(buffer);
 
-                String request = new String(buffer, 0, bytesLidos);
+                if (bytesLidos != -1) {
+                    String request = new String(buffer, 0, bytesLidos);
+                    System.out.println("Mensagem recebida: " + request);
+                }
 
-                System.out.println(request);
+                client.close();
             }
 
         } catch (Exception e) {
+            System.out.println("Erro no server: " + e.getMessage());
             e.printStackTrace();
         }
     }
