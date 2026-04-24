@@ -2,6 +2,7 @@ package com.luis.javapos.modulo2.networking;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.io.InputStream;
 
 public class aula02_server_client {
 
