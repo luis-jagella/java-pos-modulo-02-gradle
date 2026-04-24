@@ -4,6 +4,7 @@ import java.util.*;
 
 public class CollectionsOverview {
 
+    // TODO: Ainda falta implementar o seguinte método, a fim de utilizarmos o conceito de DRY.
     private static <T> void imprimirColecao(String titulo, Collection<T> colecao) {
         System.out.println("\n" + titulo);
         colecao.forEach(System.out::println);
