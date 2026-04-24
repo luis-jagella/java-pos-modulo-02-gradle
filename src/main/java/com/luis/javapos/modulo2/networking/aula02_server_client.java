@@ -16,6 +16,15 @@ public class aula02_server_client {
                 System.out.println("Cliente conectado!");
 
                 client.close();
+
+                InputStream input = client.getInputStream();
+
+                byte[] buffer = new byte[1024];
+                int bytesLidos = input.read(buffer);
+
+                String request = new String(buffer, 0, bytesLidos);
+
+                System.out.println(request);
             }
 
         } catch (Exception e) {
