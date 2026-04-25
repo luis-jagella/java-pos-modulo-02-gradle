@@ -9,7 +9,7 @@ public class aula02_server_client {
     public static void main(String[] args) {
 
         try (ServerSocket server = new ServerSocket(8000)) {
-            System.out.println("Servidor - OK | Porta - 8000....");
+            System.out.println("Servidor - OK | Porta - 8000");
 
             while (true) {
 
