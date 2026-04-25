@@ -30,7 +30,7 @@ public class aula02_server_client {
             }
 
         } catch (Exception e) {
-            System.out.println("Erro no server: " + e.getMessage());
+            System.out.println("Erro - Servidor: " + e.getMessage());
             e.printStackTrace();
         }
     }
