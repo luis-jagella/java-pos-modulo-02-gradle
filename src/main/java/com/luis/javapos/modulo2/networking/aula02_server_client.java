@@ -23,7 +23,7 @@ public class aula02_server_client {
 
                 if (bytesLidos != -1) {
                     String request = new String(buffer, 0, bytesLidos);
-                    System.out.println("Mensagem recebida: " + request);
+                    System.out.println("Message: " + request);
                 }
 
                 client.close();
