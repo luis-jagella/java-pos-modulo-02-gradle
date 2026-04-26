@@ -9,7 +9,7 @@ public class aula02_server_client {
     public static void main(String[] args) {
 
         try (ServerSocket server = new ServerSocket(8000)) {
-            System.out.println("Servidor - OK | Porta - 8000");
+            System.out.println("Server - OK | Door - 8000");
 
             while (true) {
 
@@ -23,14 +23,14 @@ public class aula02_server_client {
 
                 if (bytesLidos != -1) {
                     String request = new String(buffer, 0, bytesLidos);
-                    System.out.println("Message: " + request);
+                    System.out.println("Message received: " + request);
                 }
 
                 client.close();
             }
 
         } catch (Exception e) {
-            System.out.println("Erro - Servidor: " + e.getMessage());
+            System.out.println("Error | Server: " + e.getMessage());
             e.printStackTrace();
         }
     }
