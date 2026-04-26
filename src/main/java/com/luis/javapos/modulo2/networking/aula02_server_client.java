@@ -14,7 +14,7 @@ public class aula02_server_client {
             while (true) {
 
                 Socket client = server.accept();
-                System.out.println("Cliente: " + client.getInetAddress() + "conectado!");
+                System.out.println("Client: " + client.getInetAddress() + "connect!");
 
                 InputStream input = client.getInputStream();
 
