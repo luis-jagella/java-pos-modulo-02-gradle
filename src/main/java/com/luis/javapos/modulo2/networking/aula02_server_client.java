@@ -33,7 +33,6 @@ public class aula02_server_client {
                             System.out.println("Message received: " + request);
                         }
 
-                        // Response for client
                         String response = "Server received: " + request;
                         output.write(response.getBytes(StandardCharsets.UTF_8));
                         output.flush();
