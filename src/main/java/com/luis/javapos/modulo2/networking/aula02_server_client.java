@@ -29,7 +29,7 @@ public class aula02_server_client {
 
                         String request = "";
                         if (bytesLidos != -1) {
-                            String request = new String(buffer, 0, bytesLidos, StandardCharsets.UTF_8);
+                            request = new String(buffer, 0, bytesLidos, StandardCharsets.UTF_8);
                             System.out.println("Message received: " + request);
                         }
 
