@@ -19,6 +19,7 @@ Construir um sistema de linha de comando (CLI) para gerenciamento de um cardápi
 * Estrutura de projeto com **Gradle**
 * Entrada de dados com `Scanner`
 * Base Server HTTP
+* Concurrency
 * **Stream API**
 
   * `filter`
