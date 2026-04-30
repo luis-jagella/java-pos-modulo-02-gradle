@@ -1,4 +1,4 @@
-# Java CLI Cardápio System
+# Java CLI - Cardápio System
 
 Projeto desenvolvido durante estudos de **Java (pós-graduação)** com foco em construção de aplicações reais utilizando **Collections, Stream API e boas práticas de arquitetura**.
 
@@ -18,6 +18,7 @@ Construir um sistema de linha de comando (CLI) para gerenciamento de um cardápi
 * Validação de dados
 * Estrutura de projeto com **Gradle**
 * Entrada de dados com `Scanner`
+* Base Server HTTP
 * **Stream API**
 
   * `filter`
