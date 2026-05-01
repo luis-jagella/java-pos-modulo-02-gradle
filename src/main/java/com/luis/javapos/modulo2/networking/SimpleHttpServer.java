@@ -52,7 +52,7 @@ public class SimpleHttpServer {
 
                 String body = reader.readLine();
 
-                int id = ++counter;
+                int id = ++counter; // TODO: Não é thread-safe
                 banco.put(id, body);
 
                 String responseBody = "Saved: " + body;
