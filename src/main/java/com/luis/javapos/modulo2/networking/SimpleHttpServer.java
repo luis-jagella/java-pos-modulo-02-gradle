@@ -29,4 +29,43 @@ public class SimpleHttpServer {
             pool.execute(() -> handle(client));
         }
     }
+
+    private static void handle(Socket client) {
+        try (
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(client.getInputStream(), StandardCharsets.UTF_8)
+                );
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(client.getOutputStream(), StandardCharsets.UTF_8)
+                )
+        ) {
+
+            String line = reader.readLine();
+
+            if (line == null) return;
+
+            System.out.println("Request: " + line);
+
+            if (line.startsWith("POST")) {
+
+                while (!(line = reader.readLine()).isEmpty()) {}
+
+                String body = reader.readLine();
+
+                int id = ++counter;
+                banco.put(id, body);
+
+                String responseBody = "Saved: " + body;
+
+                writer.write("HTTP/1.1 200 OK\r\n");
+                writer.write("Content-Length: " + responseBody.length() + "\r\n");
+                writer.write("\r\n");
+                writer.write(responseBody);
+                writer.flush();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
