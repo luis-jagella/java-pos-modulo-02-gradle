@@ -17,7 +17,6 @@ public class aula02_server_client {
             while (true) {
                 Socket client = server.accept();
 
-                //new Thread(() -> handleClient(client)).start();
                 new Thread(() -> {
                     try {
                         System.out.println("Client: " + client.getInetAddress() + " connect!");
@@ -48,6 +47,4 @@ public class aula02_server_client {
             }
         }
     }
-
-    //private static void handleClient(Socket client) {}
 }
