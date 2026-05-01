@@ -4,7 +4,5 @@ public enum Categoria {
     LANCHE,
     BEBIDA,
     SOBREMESA,
-    ENERGETICOS,
-    FRUTAS,
-    FITNESS
+    ENERGETICOS
 }
