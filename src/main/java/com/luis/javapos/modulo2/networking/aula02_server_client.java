@@ -29,7 +29,6 @@ public class aula02_server_client {
                         int bytesLidos = input.read(buffer);
 
                         String request = "";
-
                         if (bytesLidos != -1) {
                             request = new String(buffer, 0, bytesLidos, StandardCharsets.UTF_8);
                             System.out.println("Message received: " + request);
