@@ -52,8 +52,7 @@ public class SimpleHttpServer {
                     contentLenght = Integer.parseInt(line.split(":")[1].trim());
                 }
             }
-
-            // leitura do body conforme o seu tamanho
+            
             char[] bodyChars = new char[contentLenght];
             reader.read(bodyChars, 0, contentLenght);
 
