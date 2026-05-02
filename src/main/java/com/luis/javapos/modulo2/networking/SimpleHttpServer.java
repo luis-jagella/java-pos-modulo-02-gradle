@@ -52,7 +52,7 @@ public class SimpleHttpServer {
 
             char[] bodyChars = new char[contentLenght];
 
-            int totalRead=0
+            int totalRead=0;
             while (totalRead < contentLenght) {
                 int read = reader.read(bodyChars, totalRead, contentLenght - totalRead);
                 if (read == -1) break;
