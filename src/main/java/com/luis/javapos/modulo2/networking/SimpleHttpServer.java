@@ -1,9 +1,6 @@
 package com.luis.javapos.modulo2.networking;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -68,7 +65,13 @@ public class SimpleHttpServer {
             writer.flush();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Erro client: " + e.getMessage());
+        } finally {
+            try {
+                client.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
