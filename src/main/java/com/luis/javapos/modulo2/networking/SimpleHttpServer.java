@@ -12,7 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SimpleHttpServer {
 
     private static final ConcurrentHashMap<Integer, String> banco = new ConcurrentHashMap<>();
-    //private static int counter = 0;
     private static final AtomicInteger counter = new AtomicInteger(0);
 
     public static void main(String[] args) throws Exception {
@@ -46,6 +45,7 @@ public class SimpleHttpServer {
 
             int contentLenght = 0;
 
+            // possível -> NullPointerException | ;/
             while (!(line = reader.readLine()).isEmpty()) {
                 if (line.startsWith("Content-Lenght")) {
                     contentLenght = Integer.parseInt(line.split(":")[1].trim());
