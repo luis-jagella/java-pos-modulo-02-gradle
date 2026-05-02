@@ -7,11 +7,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SimpleHttpServer {
 
     private static final ConcurrentHashMap<Integer, String> banco = new ConcurrentHashMap<>();
-    private static int counter = 0;
+    //private static int counter = 0;
+    private static final AtomicInteger counter = new AtomicInteger(0);
 
     public static void main(String[] args) throws Exception {
 
