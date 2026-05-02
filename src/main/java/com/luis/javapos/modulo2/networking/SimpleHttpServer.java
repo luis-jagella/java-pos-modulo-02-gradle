@@ -52,7 +52,7 @@ public class SimpleHttpServer {
                     contentLenght = Integer.parseInt(line.split(":")[1].trim());
                 }
             }
-            
+
             char[] bodyChars = new char[contentLenght];
             reader.read(bodyChars, 0, contentLenght);
 
@@ -61,25 +61,11 @@ public class SimpleHttpServer {
 
             String response = "OK";
 
-            /*
-            if (line.startsWith("POST")) {
-
-                while (!(line = reader.readLine()).isEmpty()) {}
-
-                String body = reader.readLine();
-
-                int id = ++counter; // TODO: Não é thread-safe
-                banco.put(id, body);
-
-                String responseBody = "Saved: " + body;
-
-                writer.write("HTTP/1.1 200 OK\r\n");
-                writer.write("Content-Length: " + responseBody.length() + "\r\n");
-                writer.write("\r\n");
-                writer.write(responseBody);
-                writer.flush();
-            }
-            */
+            writer.write("HTTP/1.1 200 OK\r\n");
+            writer.write("Content-Length: " + response.length() + "\r\n");
+            writer.write("\r\n");
+            writer.write(response);
+            writer.flush();
 
         } catch (Exception e) {
             e.printStackTrace();
