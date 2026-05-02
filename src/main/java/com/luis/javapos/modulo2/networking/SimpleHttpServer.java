@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,8 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class SimpleHttpServer {
 
-    private static final ConcurrentHashMap<Integer, String> banco = new ConcurrentHashMap<>();
-    private static final AtomicInteger counter = new AtomicInteger(0);
+    private static final HashMap<Integer, String> banco = new HashMap<>();
+    //private static final AtomicInteger counter = new AtomicInteger(0);
+    int counter = 0;
 
     public static void main(String[] args) throws Exception {
 
@@ -61,8 +63,9 @@ public class SimpleHttpServer {
                 totalRead += read;
             }
 
+            int id = counter.incrementAndGet();
             String body = new String(bodyChars);
-            System.out.println("Body " + body);
+            System.out.println("ID: " + id + " | Body: " + body);
 
             String response = "OK";
 
