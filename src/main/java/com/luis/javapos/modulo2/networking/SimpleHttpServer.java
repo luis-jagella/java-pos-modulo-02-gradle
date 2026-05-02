@@ -41,10 +41,17 @@ public class SimpleHttpServer {
         ) {
 
             String line = reader.readLine();
-
             if (line == null) return;
 
             System.out.println("Request: " + line);
+
+            // leitura de headers de forma padrão
+            int contentLenght = 0;
+            while (!(line = reader.readLine()).isEmpty()) {
+                if (line.startsWith("Content-Lenght")) {
+                    contentLenght = Integer.parseInt(line.split(":")[1].trim());
+                }
+            }
 
             if (line.startsWith("POST")) {
 
