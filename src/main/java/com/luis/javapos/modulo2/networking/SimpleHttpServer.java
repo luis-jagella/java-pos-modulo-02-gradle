@@ -45,11 +45,11 @@ public class SimpleHttpServer {
 
             int contentLenght = 0;
 
-            // possível -> NullPointerException | ;/
-            while (!(line = reader.readLine()).isEmpty()) {
+            while (line != null && !line.isEmpty()) {
                 if (line.startsWith("Content-Lenght")) {
                     contentLenght = Integer.parseInt(line.split(":")[1].trim());
                 }
+                line = reader.readLine();
             }
 
             char[] bodyChars = new char[contentLenght];
