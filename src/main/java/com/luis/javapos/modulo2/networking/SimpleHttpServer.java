@@ -51,9 +51,13 @@ public class SimpleHttpServer {
             }
 
             char[] bodyChars = new char[contentLenght];
-            
-            // não é garantido que esse cara vai ler toda a request de uma só ves;
-            //reader.read(bodyChars, 0, contentLenght);
+
+            int totalRead=0
+            while (totalRead < contentLenght) {
+                int read = reader.read(bodyChars, totalRead, contentLenght - totalRead);
+                if (read == -1) break;
+                totalRead += read;
+            }
 
             String body = new String(bodyChars);
             System.out.println("Body " + body);
