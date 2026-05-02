@@ -45,14 +45,24 @@ public class SimpleHttpServer {
 
             System.out.println("Request: " + line);
 
-            // leitura de headers de forma padrão
             int contentLenght = 0;
+
             while (!(line = reader.readLine()).isEmpty()) {
                 if (line.startsWith("Content-Lenght")) {
                     contentLenght = Integer.parseInt(line.split(":")[1].trim());
                 }
             }
 
+            // leitura do body conforme o seu tamanho
+            char[] bodyChars = new char[contentLenght];
+            reader.read(bodyChars, 0, contentLenght);
+
+            String body = new String(bodyChars);
+            System.out.println("Body " + body);
+
+            String response = "OK";
+
+            /*
             if (line.startsWith("POST")) {
 
                 while (!(line = reader.readLine()).isEmpty()) {}
@@ -70,6 +80,7 @@ public class SimpleHttpServer {
                 writer.write(responseBody);
                 writer.flush();
             }
+            */
 
         } catch (Exception e) {
             e.printStackTrace();
