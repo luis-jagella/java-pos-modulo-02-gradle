@@ -13,7 +13,7 @@ public class TesteConexao {
 
         Connection conn = DriverManager.getConnection(url, user, password);
 
-        System.out.println("Conectado com sucesso!");
+        System.out.println("Connected sucessfully!");
 
         conn.close();
     }
